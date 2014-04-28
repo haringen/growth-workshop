@@ -95,8 +95,8 @@ def vectorize_feature_index(df,label_column):
 q = session.query(Users).join(Event).add_entity(Event)
 df= query_to_df(session,q)
 df = df.drop(['Users_id','Event_id','Event_User_Id','Event_Meal_Id','Users_Created_Date'],1)
-print df.columns
-print df.Users_date.dtype
+
+
 def to_epoch(time_input):
     return (time_input - datetime(1970,1,1)).total_seconds()
  
@@ -104,7 +104,6 @@ transform_column(df,'Event_Type',event_to_num.get)
 transform_column(df,'Users_Campaign_ID',campaign_to_num.get)
 transform_column(df,'Users_date',to_epoch)
 transform_column(df,'Event_date',to_epoch)
-print df
 vectorize_feature_index(df,'Event_Type')
 
 
@@ -152,7 +151,6 @@ event_to_num = {
 
 def vectorize_feature_index(df,label_column):
     feature_names = []
-    global X,train_index,test_index,y,y_test
     for feature_name in df.columns.values:
         print feature_name
         if feature_name != label_column:
@@ -166,11 +164,11 @@ def vectorize_feature_index(df,label_column):
     X = df[feature_names].as_matrix().astype(np.float)
     y = df[label_column].index
     y_test = y[test_index].astype(float)
+    return X,y,train_index,test_index,y_test
 
 q = session.query(Users).join(Event).add_entity(Event)
 df= query_to_df(session,q)
 
-print df
 
 df = df.drop(['Users_id','Event_id','Event_User_Id','Event_Meal_Id','Users_Created_Date'],1)
 
@@ -181,8 +179,7 @@ transform_column(df,'Event_Type',event_to_num.get)
 transform_column(df,'Users_Campaign_ID',campaign_to_num.get)
 transform_column(df,'Users_date',to_epoch)
 transform_column(df,'Event_date',to_epoch)
-print df
-vectorize_feature_index(df,'Event_Type')
+X,y,train_index,test_index,y_test = vectorize_feature_index(df,'Event_Type')
 
 def confusion_rates(cm):
 
@@ -209,17 +206,20 @@ def profit_curve(classifiers):
         name, clf_class = clf_class[0], clf_class[1]
         clf = clf_class()
         fit = clf.fit(X[train_index], y[train_index])
+        print len(X[train_index])
         probabilities = np.array([prob[0] for prob in fit.predict_proba(X[test_index])])
         profit = []
 
         indicies = np.argsort(probabilities)[::1]
-
+        print 'indices',indicies
         for idx in xrange(len(indicies)):
             pred_true = indicies[:idx]
             ctr = np.arange(indicies.shape[0])
             masked_prediction = np.in1d(ctr, pred_true)
             cm = confusion_matrix(y_test.astype(int), masked_prediction.astype(int))
+
             rates = confusion_rates(cm)
+            print ('cf for ',idx,rates)
 
             profit.append(np.sum(np.multiply(rates,cb)))
 

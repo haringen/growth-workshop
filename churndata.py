@@ -37,7 +37,7 @@ class Users(Base):
     period = DAY
     @classmethod
     def ntimes(self, i, time):
-        return 5*pow(1.005, i)
+        return 1*pow(1.005, i)
 
     variance = ntimes
 
@@ -62,7 +62,7 @@ class Referral(Base):
 
     @classmethod
     def ntimes(self, i, time):
-    	return 5*pow(1.005, i)
+    	return 1*pow(1.005, i)
 
     variance = ntimes
 
@@ -79,16 +79,17 @@ class Visit(Base):
     id = Column(Integer,primary_key=True)
     date  = Column(DateTime, default=datetime.datetime.utcnow)
     user_id = Column(Integer, ForeignKey("Users.id"), nullable=False)
-
+    visit_duration = Column(Integer,default=1)
     def forge(self, session, basetime, date, **kwargs):
         self.user_id = get_random(Users,session=session,basetime=basetime)
+        self.visit_duration = random.randint(1,60)
         self.date = date
 
     period = DAY
 
     @classmethod
     def ntimes(self, i, time):
-    	return 5*pow(1.005, i)
+    	return 1*pow(1.005, i)
 
     variance = ntimes
 
@@ -120,7 +121,7 @@ class Meal(Base):
 	period = DAY
     @classmethod
     def ntimes(self, i, time):
-    	return 5*pow(1.005, i)
+    	return 1*pow(1.005, i)
     
     variance = ntimes
 
@@ -171,7 +172,7 @@ class Event(Base):
     period = DAY
     @classmethod
     def ntimes(self, i, time):
-    	return 5*pow(1.001, i)
+    	return 1*pow(1.001, i)
     
     variance = ntimes
 
