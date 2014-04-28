@@ -1,1 +1,1 @@
-__author__ = 'agibsonccc'
+#! /usr/lib/python
