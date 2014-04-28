@@ -1,38 +1,20 @@
 from __future__ import division
-from sqlalchemy import *
-import numpy as np
-from sqlalchemy.orm import sessionmaker
-from churndata import *
 from datetime import datetime
-from pandas import DataFrame
-from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
-from sqlalchemy import *
-import numpy as np
+
 from sklearn.linear_model import LogisticRegression as LR
 from sklearn.ensemble import RandomForestClassifier as RF
 from sklearn.ensemble import GradientBoostingClassifier as GBC
-from sklearn.svm import SVC
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import func
 from sklearn.metrics import confusion_matrix
 from sklearn.cross_validation import train_test_split
-from churndata import *
-from sklearn.preprocessing import StandardScaler
-from pandas import DataFrame,Series
-from pandas.core.groupby import GroupBy
-import pandas as pd
-from util import query_to_df
-from util import *
 import matplotlib.pyplot as plt
 from sqlalchemy import *
 import numpy as np
 from sqlalchemy.orm import sessionmaker
-from churndata import *
-from datetime import datetime
 from pandas import DataFrame
 from sklearn.preprocessing import StandardScaler
 
+from churn_predict_ready_chef.util import *
+from churndata import *
 
 
 def transform_column(df,column_name,fn):

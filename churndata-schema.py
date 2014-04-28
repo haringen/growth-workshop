@@ -1,18 +1,10 @@
 from __future__ import division
-import matplotlib.pyplot as plt
-from sqlalchemy import *
-import numpy as np
-from sklearn.linear_model import LogisticRegression
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import func
-from sklearn.metrics import confusion_matrix
+
 from sklearn.cross_validation import train_test_split
-from churndata import *
 from sklearn.preprocessing import StandardScaler
-from pandas import DataFrame,Series
-from pandas.core.groupby import GroupBy
-from util import query_to_df,vectorize_index
-from util import *
+
+from churn_predict_ready_chef.util import *
+
 db = create_engine('sqlite:///forjar.db')
  
  

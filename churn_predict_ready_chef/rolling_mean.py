@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 import numpy as np
 
 def rolling_mean(data, window, min_periods=1, center=False):
+    if len(data) < 2:
+        return data
     ''' Function that computes a rolling mean
 
     Parameters
