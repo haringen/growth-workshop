@@ -1,15 +1,5 @@
 from __future__ import division
-<<<<<<< HEAD
 
-from sqlalchemy import *
-import numpy as np
-from sqlalchemy.orm import sessionmaker
-
-from churndata import *
-from churn_predict_ready_chef.util import query_to_df
-
-
-=======
 import matplotlib.pyplot as plt
 from sqlalchemy import *
 import numpy as np
@@ -27,7 +17,6 @@ import pandas as pd
 
 
 from util import campaign_to_num,event_to_num,transform_column,hist_and_show,vectorize,to_percentage,num_rows,vectorize_label,meal_to_num,to_milliseconds
->>>>>>> 313dfac7db66bffdcb35bd4d30972897623b4d07
 db = create_engine('sqlite:///forjar.db')
 
 

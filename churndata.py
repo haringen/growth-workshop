@@ -89,11 +89,7 @@ class Visit(Base):
 
     @classmethod
     def ntimes(self, i, time):
-<<<<<<< HEAD
-    	return 100*pow(5.005, i)
-=======
-    	return 5*pow(1.005, i)
->>>>>>> 313dfac7db66bffdcb35bd4d30972897623b4d07
+       	return 5*pow(1.005, i)
 
     variance = ntimes
 
