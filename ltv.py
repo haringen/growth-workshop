@@ -1,4 +1,5 @@
 from __future__ import division
+<<<<<<< HEAD
 
 from sqlalchemy import *
 import numpy as np
@@ -8,6 +9,25 @@ from churndata import *
 from churn_predict_ready_chef.util import query_to_df
 
 
+=======
+import matplotlib.pyplot as plt
+from sqlalchemy import *
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import func
+from sklearn.metrics import confusion_matrix
+from sklearn.cross_validation import train_test_split
+from churndata import *
+from sklearn.preprocessing import StandardScaler
+from pandas import DataFrame
+from pandas.core.groupby import GroupBy
+from util import query_to_df
+import pandas as pd
+
+
+from util import campaign_to_num,event_to_num,transform_column,hist_and_show,vectorize,to_percentage,num_rows,vectorize_label,meal_to_num,to_milliseconds
+>>>>>>> 313dfac7db66bffdcb35bd4d30972897623b4d07
 db = create_engine('sqlite:///forjar.db')
 
 
