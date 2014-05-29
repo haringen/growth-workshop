@@ -19,9 +19,6 @@
 [submodule "modules/multi-armed-bandit"]
 	path = modules/multi-armed-bandit
 	url = git@github.com:zipfian/multi-armed-bandit.git
-[submodule "modules/sql-featurization"]
-	path = modules/sql-featurization
-	url = git@github.com:zipfian/sql-featurization.git
 [submodule "modules/churn"]
 	path = modules/churn
 	url = git@github.com:zipfian/churn.git
