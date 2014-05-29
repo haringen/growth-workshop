@@ -1,3 +1,30 @@
 [submodule "forjar"]
 	path = forjar
 	url = https://github.com/chartio/forjar.git
+[submodule "modules/sql"]
+	path = modules/sql
+	url = git@github.com:zipfian/sql.git
+[submodule "modules/pandas-tutorial"]
+	path = modules/pandas-tutorial
+	url = git@github.com:zipfian/pandas-tutorial.git
+[submodule "modules/pandas"]
+	path = modules/pandas
+	url = git@github.com:zipfian/pandas.git
+[submodule "modules/eda-pandas"]
+	path = modules/eda-pandas
+	url = git@github.com:zipfian/eda-pandas.git
+[submodule "modules/ab-testing"]
+	path = modules/ab-testing
+	url = git@github.com:zipfian/ab-testing.git
+[submodule "modules/multi-armed-bandit"]
+	path = modules/multi-armed-bandit
+	url = git@github.com:zipfian/multi-armed-bandit.git
+[submodule "modules/sql-featurization"]
+	path = modules/sql-featurization
+	url = git@github.com:zipfian/sql-featurization.git
+[submodule "modules/churn"]
+	path = modules/churn
+	url = git@github.com:zipfian/churn.git
+[submodule "modules/profit-curves"]
+	path = modules/profit-curves
+	url = git@github.com:zipfian/profit-curves.git
