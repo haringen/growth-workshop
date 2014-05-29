@@ -25,3 +25,6 @@
 [submodule "modules/profit-curves"]
 	path = modules/profit-curves
 	url = git@github.com:zipfian/profit-curves.git
+[submodule "modules/sql-featurization"]
+	path = modules/sql-featurization
+	url = git@github.com:zipfian/sql-featurization.git
